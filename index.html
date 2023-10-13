@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/index.css">
+
+    <title>My Trading Setup</title>
+  </head>
+  <body>
+    <h1>Showcase your Trading Skills</h1>
+    <form action="id.php" method="POST">
+
+      <label for="timestamp">Timestamp:</label>
+      <input type="text" id="timestamp" name="timestamp" value=""><br><br>
+
+      <label for="name">Script:</label>
+      <input type="text" id="name" name="name"><br><br>
+
+      <label for="market">Market Type:</label>
+      <select id="market_type" name="market_type">
+        <option value="Equity">Equity</option>
+        <option value="FUT">FUT</option>
+        <option value="Options">Options</option>
+      </select><br><br>
+
+      <label for="market">Order Type:</label>
+      <select id="order_type" name="order_type">
+        <option value="Buy">Buy</option>
+        <option value="Sell">Sell</option>
+      </select><br><br>
+
+      <label for="entry">Entry:</label>
+      <input type="text" id="entry_price" name="entry_price"><br><br>
+
+      <label for="image">Entry_setup:</label>
+      <input type="file" id="entry_image" name="entry_image"><br><br>
+
+      
+      <label for="quantity">Quantity:</label>
+      <input type="text" id="quantity" name="Quantity"><br><br>
+
+      
+      <label for="exit">Exit:</label>
+      <input type="text" id="exit_price" name="exit_price"><br><br>
+
+      <label for="image">Exit_setup:</label>
+      <input type="file" id="exit_image" name="exit_image"><br><br>
+      
+      <label for="P&L">P&L:</label>
+      <input type="text" id="PL" name="PL"><br><br>
+
+      <label for="Capital">Capital:</label>
+      <input type="text" id="total_capital" name="capital" value=""><br><br>
+
+      <label for="return">Return:</label>
+      <input type="text" id="returnage" name="returnn" value=""><br><br>
+
+
+      <label for="logic">Logic:</label><br>
+      <textarea id="logic" name="logic" rows="4" cols="50" ></textarea><br><br>
+<br>
+
+<br>
+<br>
+      
+      <label for="mistake">Mistake:</label><br>
+      <textarea id="mistake" name="mistake" rows="4" cols="50"></textarea><br><br>
+
+      <button type="submit" > Submit</button>
+    </form>
+
+    <script>
+        var today = new Date();
+        var timestamp = today.toISOString();
+        document.getElementById('timestamp').value = timestamp;
+      </script>
+
+    <script>
+        var entry_price = document.getElementById('entry_price').value;
+        var quantity = document.getElementById('quantity').value;
+        var total_capital = entry_price*quantity;
+        document.getElementById('total_capital').value = total_capital;
+    </script>
+
+<script>
+    var entry_price = document.getElementById('entry_price').value;
+    var PL = document.getElementById('PL').value;
+    var returnn = (PL*100)/entry_price;
+    document.getElementById('returnage').value = returnn;
+</script>
+
+
+  </body>
+</html>
